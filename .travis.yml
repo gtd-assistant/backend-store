@@ -4,4 +4,6 @@ install: make install
 test: make test
 jdk:
   - oraclejdk8
+deploy:
+  provider: heroku
 
