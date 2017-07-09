@@ -18,8 +18,6 @@ public class DataSourceConfig {
                 .setType(H2)
                 .setScriptEncoding("UTF-8")
                 .ignoreFailedDrops(true)
-                .addScript("schema.sql")
-                .addScripts("user_data.sql", "country_data.sql")
                 .build();
     }
 }
