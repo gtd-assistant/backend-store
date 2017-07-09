@@ -9,9 +9,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @Import(DataSourceConfig.class)
-public class DemoApplicationTests {
+public class SpringContextShould {
     @Test
-    public void contextLoads() {
+    public void load_successfully() {
     }
 
 }
