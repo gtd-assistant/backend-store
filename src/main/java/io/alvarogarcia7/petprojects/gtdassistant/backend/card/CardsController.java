@@ -18,7 +18,7 @@ public class CardsController {
         this.cardAdapter = cardAdapter;
     }
 
-    @PostMapping(value = "/cards", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/api/v1/cards", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CardDTO> cardCreated(@RequestBody CardCreatedEvent event) {
         cardWriteRepository.save(new CardCreated(event.getName()));
         return ResponseEntity.ok(cardAdapter.adapt(new Card()));

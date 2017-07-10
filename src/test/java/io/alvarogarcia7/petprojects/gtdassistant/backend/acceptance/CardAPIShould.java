@@ -34,7 +34,7 @@ public class CardAPIShould {
                 .accept(ContentType.JSON)
                 .body("{\"name\": \"buy milk\"}")
                 .when()
-                .post("/cards").
+                .post("/api/v1/cards").
                 then()
                 .log().all()
                 .statusCode(HttpStatus.OK.value())
