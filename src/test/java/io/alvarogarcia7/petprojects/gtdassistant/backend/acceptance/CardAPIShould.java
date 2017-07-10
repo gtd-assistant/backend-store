@@ -5,7 +5,6 @@ import io.alvarogarcia7.petprojects.gtdassistant.backend.EventBus;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardAdapter;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardCreated;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardsController;
-import io.alvarogarcia7.petprojects.gtdassistant.backend.events.Event;
 import io.restassured.http.ContentType;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,6 +41,6 @@ public class CardAPIShould {
                 .contentType(ContentType.JSON)
                 .body("id", equalTo(1));
 
-        verify(eventBus).publish(new CardCreated(Event.EventID.random(), CardCreated.CardID.random(), "buy milk"));
+        verify(eventBus).publish(new CardCreated("buy milk"));
     }
 }

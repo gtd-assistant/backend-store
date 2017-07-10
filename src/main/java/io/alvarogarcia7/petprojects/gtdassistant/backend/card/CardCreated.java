@@ -12,9 +12,9 @@ public class CardCreated extends Event {
     private final CardID id;
     private final String name;
 
-    public CardCreated(EventID eventID, CardID cardID, String name) {
-        super(eventID);
-        this.id = cardID;
+    public CardCreated(String name) {
+        super(EventID.random());
+        this.id = CardID.random();
         this.name = name;
     }
 
