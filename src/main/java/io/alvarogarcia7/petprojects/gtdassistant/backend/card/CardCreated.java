@@ -6,7 +6,7 @@ import lombok.ToString;
 
 import java.util.UUID;
 
-@EqualsAndHashCode(of = {"name"})
+@EqualsAndHashCode(exclude = {"id"})
 @ToString
 public class CardCreated extends Event {
     private final CardID id;

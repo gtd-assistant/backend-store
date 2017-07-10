@@ -7,7 +7,7 @@ import lombok.ToString;
 import java.util.UUID;
 
 @ToString
-@EqualsAndHashCode(of = {"id"})
+@EqualsAndHashCode
 public class Event {
 
     @Getter
