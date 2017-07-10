@@ -14,3 +14,7 @@ clean:
 install:
 	./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
+.PHONY: run
+run:
+	./mvnw spring-boot:run
+
