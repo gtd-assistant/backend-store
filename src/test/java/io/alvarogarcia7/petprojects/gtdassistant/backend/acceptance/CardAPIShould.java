@@ -6,6 +6,7 @@ import io.alvarogarcia7.petprojects.gtdassistant.backend.card.*;
 import io.restassured.http.ContentType;
 import io.restassured.module.mockmvc.response.MockMvcResponse;
 import io.restassured.module.mockmvc.specification.MockMvcRequestAsyncSender;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -60,5 +61,20 @@ public class CardAPIShould {
                 .statusCode(HttpStatus.OK.value())
                 .contentType(ContentType.JSON)
                 .body("id", equalTo("1"));
+    }
+
+    @Test
+    public void rename_a_card() {
+        MockMvcRequestAsyncSender when = given()
+                .standaloneSetup(new CardsController(eventBus, cardAdapter))
+                .contentType(ContentType.JSON)
+                .accept(ContentType.JSON)
+                .body("{\"id\": \"1234\", \"name\": \"buy milk\"}")
+                .when();
+
+        MockMvcResponse request = when.post("/api/v1/cards?action=rename");
+
+        request.then()
+                .statusCode(HttpStatus.OK.value());
     }
 }
