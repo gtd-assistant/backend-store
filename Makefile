@@ -18,3 +18,19 @@ install:
 run:
 	./mvnw spring-boot:run
 
+.PHONY: heroku-ps
+heroku-ps:
+	heroku ps
+
+.PHONY: heroku-logs
+heroku-logs:
+	heroku logs
+
+.PHONY: heroku-stop
+heroku-stop:
+	heroku ps:stop web.1
+
+.PHONY: heroku-get-password
+heroku-get-password:
+	heroku logs -n 100 | grep "Using default security password"
+
