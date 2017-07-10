@@ -23,5 +23,10 @@ public class Configuration {
         return new CardAdapter();
     }
 
+    @Bean
+    public EventBus eventBus(){
+        return new EventBus();
+    }
+
 
 }

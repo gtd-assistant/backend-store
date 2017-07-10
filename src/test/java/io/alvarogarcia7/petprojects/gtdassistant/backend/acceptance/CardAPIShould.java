@@ -1,6 +1,7 @@
 package io.alvarogarcia7.petprojects.gtdassistant.backend.acceptance;
 
 import io.alvarogarcia7.petprojects.gtdassistant.backend.DataSourceConfig;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.EventBus;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardAdapter;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardCreated;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardWriteRepository;
@@ -23,13 +24,13 @@ import static org.mockito.Mockito.verify;
 @RunWith(SpringRunner.class)
 public class CardAPIShould {
     @Mock
-    CardWriteRepository cardWriteRepository;
+    EventBus eventBus;
 
 
     @Test
     public void insert_a_card_creation_event() {
         given()
-                .standaloneSetup(new CardsController(cardWriteRepository, new CardAdapter()))
+                .standaloneSetup(new CardsController(eventBus, new CardAdapter()))
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
                 .body("{\"name\": \"buy milk\"}")
@@ -41,6 +42,6 @@ public class CardAPIShould {
                 .contentType(ContentType.JSON)
                 .body("id", equalTo(1));
 
-        verify(cardWriteRepository).save(new CardCreated("buy milk"));
+        verify(eventBus).publish(new CardCreated("buy milk"));
     }
 }
