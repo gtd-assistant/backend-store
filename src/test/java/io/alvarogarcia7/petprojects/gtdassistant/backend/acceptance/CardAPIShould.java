@@ -4,7 +4,6 @@ import io.alvarogarcia7.petprojects.gtdassistant.backend.DataSourceConfig;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.EventBus;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardAdapter;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardCreated;
-import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardWriteRepository;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardsController;
 import io.restassured.http.ContentType;
 import org.junit.Test;
