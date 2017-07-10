@@ -18,6 +18,11 @@ install:
 run:
 	./mvnw spring-boot:run
 
+.PHONY: heroku-cli
+heroku-cli:
+	echo "change to /app; then heroku login"
+	docker run -it -v ${PWD}:/app heroku-runner /bin/bash
+
 .PHONY: heroku-ps
 heroku-ps:
 	heroku ps
