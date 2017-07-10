@@ -8,7 +8,7 @@ import javax.sql.DataSource;
 
 import static org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType.H2;
 
-@Configuration("test-datasource")
+@Configuration("datasource")
 public class DataSourceConfig {
 
     @Bean
