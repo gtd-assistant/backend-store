@@ -4,10 +4,9 @@ import lombok.Getter;
 
 @Getter
 public class CardDTO {
-    private final int id;
+    private final String id;
 
-    public CardDTO(int id) {
-
+    public CardDTO(String id) {
         this.id = id;
     }
 }
