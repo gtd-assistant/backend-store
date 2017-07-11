@@ -1,10 +1,7 @@
 package io.alvarogarcia7.petprojects.gtdassistant.backend.card;
 
 import io.alvarogarcia7.petprojects.gtdassistant.backend.events.Event;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.UUID;
 
@@ -13,11 +10,17 @@ import java.util.UUID;
 public class CardCreated extends Event {
     private final CardID id;
     private final String name;
+    private final CategoryIds categoryIds;
 
-    public CardCreated(String name) {
+    public CardCreated(String name, CategoryIds categoryIds) {
         super(EventID.random());
         this.id = CardID.random();
         this.name = name;
+        this.categoryIds = categoryIds;
+    }
+
+    public CardCreated(String name) {
+        this(name, CategoryIds.empty());
     }
 
     @EqualsAndHashCode

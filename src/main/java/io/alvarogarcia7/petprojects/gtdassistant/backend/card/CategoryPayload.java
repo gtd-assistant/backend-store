@@ -5,14 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @EqualsAndHashCode
 @ToString
 @Getter
 @Setter
-public class CardCreatedPayload {
-    String name;
-    List<CategoryPayload> categories = new ArrayList<>();
+public class CategoryPayload {
+    String id;
 }
