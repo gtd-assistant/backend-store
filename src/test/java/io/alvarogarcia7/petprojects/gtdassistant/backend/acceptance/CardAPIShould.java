@@ -79,7 +79,7 @@ public class CardAPIShould {
                 .body("{\"name\": \"buy milks\"}")
                 .when();
 
-        MockMvcResponse request = when.post("/api/v1/rename/cards/"+cardIdValue);
+        MockMvcResponse request = when.put("/api/v1/rename/cards/"+cardIdValue);
 
         request.then()
                 .statusCode(HttpStatus.OK.value());
