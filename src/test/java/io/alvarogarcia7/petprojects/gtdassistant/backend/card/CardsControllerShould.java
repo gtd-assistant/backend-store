@@ -28,20 +28,20 @@ public class CardsControllerShould {
     }
 
     @Test
+    public void publish_an_event_when_saving_a_card() {
+
+        cardsController.cardCreated(cardCreatedPayload("buy milk"));
+
+        verify(eventBus).publish(new CardCreated("buy milk"));
+    }
+
+    @Test
     public void publish_an_event_when_renaming_a_card() {
         String cardIdValue = UUID.randomUUID().toString();
 
         cardsController.cardUpdated(cardIdValue, cardUpdatedPayload("buy milks"));
 
         verify(eventBus).publish(new CardUpdatedEvent(CardCreated.CardID.from(cardIdValue), "buy milks"));
-    }
-
-    @Test
-    public void publish_an_event_when_saving_a_card() {
-
-        cardsController.cardCreated(cardCreatedPayload("buy milk"));
-
-        verify(eventBus).publish(new CardCreated("buy milk"));
     }
 
 
