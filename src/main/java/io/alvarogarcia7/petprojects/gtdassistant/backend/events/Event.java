@@ -6,8 +6,8 @@ import lombok.ToString;
 
 import java.util.UUID;
 
-@ToString
-@EqualsAndHashCode
+@ToString(exclude = {"id"})
+@EqualsAndHashCode(exclude = {"id"})
 public class Event {
 
     @Getter
