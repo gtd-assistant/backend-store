@@ -26,16 +26,11 @@ import static org.mockito.Mockito.verify;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class CardAPIShould {
+    @Mock
     EventBus eventBus;
 
     @Mock
     CardAdapter cardAdapter;
-
-    @Before
-    public void setUp(){
-        eventBus = Mockito.mock(EventBus.class);
-    }
-
 
     @Test
     public void save_a_card() {
