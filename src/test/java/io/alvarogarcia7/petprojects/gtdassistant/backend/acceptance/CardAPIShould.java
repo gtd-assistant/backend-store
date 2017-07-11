@@ -36,19 +36,6 @@ public class CardAPIShould {
         eventBus = Mockito.mock(EventBus.class);
     }
 
-    @Test
-    public void publish_an_event_when_saving_a_card() {
-        MockMvcRequestAsyncSender when = given()
-                .standaloneSetup(new CardsController(eventBus, cardAdapter))
-                .contentType(ContentType.JSON)
-                .accept(ContentType.JSON)
-                .body("{\"name\": \"buy milkw\"}")
-                .when();
-
-        when.post("/api/v1/cards");
-
-        verify(eventBus).publish(new CardCreated("buy milkw"));
-    }
 
     @Test
     public void return_a_view_of_the_card_when_saving_a_card() {

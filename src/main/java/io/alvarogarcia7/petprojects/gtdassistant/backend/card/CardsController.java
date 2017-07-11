@@ -19,8 +19,8 @@ public class CardsController {
     }
 
     @PostMapping(value = "/api/v1/cards", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CardDTO> cardCreated(@RequestBody CardCreatedEvent event) {
-        eventBus.publish(new CardCreated(event.getName()));
+    public ResponseEntity<CardDTO> cardCreated(@RequestBody CardCreatedPayload cardCreatedPayload) {
+        eventBus.publish(new CardCreated(cardCreatedPayload.name));
         return ResponseEntity.ok(cardAdapter.adapt(new Card()));
     }
 

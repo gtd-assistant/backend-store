@@ -1,14 +1,17 @@
 package io.alvarogarcia7.petprojects.gtdassistant.backend.card;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.events.Event;
+import lombok.*;
 
 @Getter
 @Setter
-@EqualsAndHashCode
+@EqualsAndHashCode(callSuper = true)
 @ToString
-public class CardCreatedEvent {
-    String name;
+public class CardCreatedEvent extends Event {
+    private final String name;
+
+    public CardCreatedEvent(String name) {
+        super(EventID.random());
+        this.name = name;
+    }
 }
