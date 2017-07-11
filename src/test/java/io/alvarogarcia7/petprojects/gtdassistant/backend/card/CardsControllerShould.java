@@ -21,7 +21,7 @@ public class CardsControllerShould {
     CardAdapter cardAdapter;
 
     @Test
-    public void rename_a_card() {
+    public void publish_an_event_when_renaming_a_card() {
         CardsController cardsController = new CardsController(eventBus, cardAdapter);
         String cardIdValue = UUID.randomUUID().toString();
 
