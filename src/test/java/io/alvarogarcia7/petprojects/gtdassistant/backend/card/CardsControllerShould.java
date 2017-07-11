@@ -2,6 +2,7 @@ package io.alvarogarcia7.petprojects.gtdassistant.backend.card;
 
 import io.alvarogarcia7.petprojects.gtdassistant.backend.EventBus;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.events.CardUpdatedEvent;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -19,10 +20,15 @@ public class CardsControllerShould {
 
     @Mock
     CardAdapter cardAdapter;
+    private CardsController cardsController;
+
+    @Before
+    public void setUp() throws Exception {
+        cardsController = new CardsController(eventBus, cardAdapter);
+    }
 
     @Test
     public void publish_an_event_when_renaming_a_card() {
-        CardsController cardsController = new CardsController(eventBus, cardAdapter);
         String cardIdValue = UUID.randomUUID().toString();
 
         cardsController.cardUpdated(cardIdValue, cardUpdatedPayload("buy milks"));
@@ -32,7 +38,6 @@ public class CardsControllerShould {
 
     @Test
     public void publish_an_event_when_saving_a_card() {
-        CardsController cardsController = new CardsController(eventBus, cardAdapter);
 
         cardsController.cardCreated(cardCreatedPayload("buy milk"));
 
