@@ -38,7 +38,7 @@ public class CardAPIShould {
 
 
     @Test
-    public void return_a_view_of_the_card_when_saving_a_card() {
+    public void save_a_card() {
         Mockito.doReturn(new CardDTO("1")).when(cardAdapter).adapt(Mockito.any(Card.class));
         MockMvcRequestAsyncSender when = given()
                 .standaloneSetup(new CardsController(eventBus, cardAdapter))
