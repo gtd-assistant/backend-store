@@ -22,18 +22,18 @@ public class Event {
     public static class EventID {
 
         @Getter
-        private final UUID value;
+        private final String value;
 
-        private EventID(UUID value) {
+        private EventID(String value) {
             this.value = value;
         }
 
         public static EventID aNew(String value) {
-            return new EventID(UUID.fromString(value));
+            return new EventID(value);
         }
 
         public static EventID random() {
-            return new EventID(UUID.randomUUID());
+            return new EventID(UUID.randomUUID().toString());
         }
     }
 }

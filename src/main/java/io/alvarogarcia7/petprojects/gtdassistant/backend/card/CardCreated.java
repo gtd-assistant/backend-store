@@ -25,18 +25,18 @@ public class CardCreated extends Event {
     @Setter
     @Getter
     public static class CardID {
-        private final UUID id;
+        private final String id;
 
-        public CardID(UUID id) {
+        public CardID(String id) {
             this.id = id;
         }
 
         public static CardID random() {
-            return new CardID(UUID.randomUUID());
+            return new CardID(UUID.randomUUID().toString());
         }
 
         public static CardID from(String value) {
-            return new CardID(UUID.fromString(value));
+            return new CardID(value);
         }
     }
 }
