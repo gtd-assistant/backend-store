@@ -11,4 +11,6 @@ deploy:
   app: pure-plateau-69854
   on:
     all_branches: true
-
+cache:
+  directories:
+  - $HOME/.m2
