@@ -20,8 +20,11 @@ public class CardsController {
 
     @PostMapping(value = "/api/v1/cards", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CardDTO> cardCreated(@RequestBody CardCreatedPayload cardCreatedPayload) {
-        eventBus.publish(new Adapter().adapt(cardCreatedPayload));
-        return ResponseEntity.ok(cardAdapter.adapt(new Card()));
+//        if(cardCreatedPayload.equals("forbidden")){
+            throw new SlangPayloadException();
+//        }
+//        eventBus.publish(new Adapter().adapt(cardCreatedPayload));
+//        return ResponseEntity.ok(cardAdapter.adapt(new Card()));
     }
 
     //TODO AGB: Find out how to solve this
@@ -30,4 +33,7 @@ public class CardsController {
         eventBus.publish(new CardUpdatedEvent(CardCreated.CardID.from(cardIdValue), event.getName()));
         return ResponseEntity.ok().build();
     }
+
+
 }
+
