@@ -25,7 +25,7 @@ import static org.mockito.Mockito.verify;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class CardAPIShould {
+public class CardControllerShould {
     @Mock
     EventBus eventBus;
 
