@@ -9,6 +9,7 @@ import java.util.function.Consumer;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 public class EventBusShould {
@@ -42,6 +43,18 @@ public class EventBusShould {
 
         verify(mock).y(any(CardCreated.class));
         verify(mock2).y(any(CardCreated.class));
+    }
+
+    @Test
+    public void tell_the_same_subscriber_multiple_times_about_the_same_event() {
+        // is this a feature or a defect?
+        // for now, documenting the behavior
+        eventBus.subscribe(CardCreated.class, mock::y);
+        eventBus.subscribe(CardCreated.class, mock::y);
+
+        eventBus.publish(new CardCreated("hello", CategoryId.CategoryIds.empty()));
+
+        verify(mock,times(2)).y(any(CardCreated.class));
     }
 
     private class X {
