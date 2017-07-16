@@ -16,7 +16,7 @@ import java.util.UUID;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CardsControllerShould {
+public class CardControllerShould {
 
     @Mock
     EventBus eventBus;
