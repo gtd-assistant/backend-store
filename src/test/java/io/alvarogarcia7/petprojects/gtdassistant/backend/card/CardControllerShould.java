@@ -40,7 +40,7 @@ public class CardControllerShould {
 
     @Test
     public void publish_an_event_when_renaming_a_card() {
-        String cardIdValue = UUID.randomUUID().toString();
+        String cardIdValue = "any-card";
 
         cardController.cardUpdated(cardIdValue, cardUpdatedPayload("buy milks"));
 
