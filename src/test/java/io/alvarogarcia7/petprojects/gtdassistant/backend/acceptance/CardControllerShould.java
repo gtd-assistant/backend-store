@@ -23,7 +23,6 @@ import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.mockito.Mockito.verify;
 
-@SpringBootTest
 @RunWith(SpringRunner.class)
 public class CardControllerShould {
     @Mock
