@@ -1,14 +1,14 @@
-package io.alvarogarcia7.petprojects.gtdassistant.backend.card;
+package io.alvarogarcia7.petprojects.gtdassistant.backend.card.updated;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+@Getter
 @EqualsAndHashCode
 @ToString
-@Getter
 @Setter
-public class CategoryPayload {
-    String id;
+public class CardUpdatedPayload {
+    private String name;
 }

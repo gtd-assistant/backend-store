@@ -1,4 +1,4 @@
-package io.alvarogarcia7.petprojects.gtdassistant.backend.card;
+package io.alvarogarcia7.petprojects.gtdassistant.backend.card.category;
 
 import lombok.EqualsAndHashCode;
 import lombok.ToString;

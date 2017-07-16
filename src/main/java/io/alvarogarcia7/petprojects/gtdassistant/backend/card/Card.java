@@ -1,5 +1,7 @@
 package io.alvarogarcia7.petprojects.gtdassistant.backend.card;
 
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.category.CategoryId;
+
 import java.util.Arrays;
 
 public class Card {

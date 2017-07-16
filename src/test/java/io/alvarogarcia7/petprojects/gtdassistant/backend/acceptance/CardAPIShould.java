@@ -2,6 +2,7 @@ package io.alvarogarcia7.petprojects.gtdassistant.backend.acceptance;
 
 import io.alvarogarcia7.petprojects.gtdassistant.backend.EventBus;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.*;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.category.CategoryIdDTO;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreated;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.events.CardUpdatedEvent;
 import io.restassured.http.ContentType;

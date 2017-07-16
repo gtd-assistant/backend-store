@@ -1,5 +1,7 @@
 package io.alvarogarcia7.petprojects.gtdassistant.backend.card;
 
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.category.CategoryId;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.category.CategoryPayload;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreated;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreatedPayload;
 

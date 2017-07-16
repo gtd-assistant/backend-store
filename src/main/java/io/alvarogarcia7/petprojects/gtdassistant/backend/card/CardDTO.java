@@ -1,5 +1,6 @@
 package io.alvarogarcia7.petprojects.gtdassistant.backend.card;
 
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.category.CategoryIdDTO;
 import lombok.Getter;
 
 import java.util.List;

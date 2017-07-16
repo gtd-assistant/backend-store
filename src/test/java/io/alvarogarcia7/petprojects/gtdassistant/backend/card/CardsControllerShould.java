@@ -3,6 +3,7 @@ package io.alvarogarcia7.petprojects.gtdassistant.backend.card;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.EventBus;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreated;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreatedPayload;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.updated.CardUpdatedPayload;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.events.CardUpdatedEvent;
 import org.junit.Before;
 import org.junit.Test;
