@@ -72,12 +72,6 @@ public class CardControllerShould {
         ;
     }
 
-    private CategoryIdDTO getCategoryIdDTO(String id) {
-        CategoryIdDTO categoryIdDTO = new CategoryIdDTO();
-        categoryIdDTO.id = id;
-        return categoryIdDTO;
-    }
-
     @Test
     public void rename_a_card() {
         String cardIdValue = UUID.randomUUID().toString();
@@ -93,5 +87,11 @@ public class CardControllerShould {
         request.then()
                 .statusCode(HttpStatus.OK.value());
         verify(eventBus).publish(new CardUpdatedEvent(CardCreated.CardID.from(cardIdValue), "buy milks"));
+    }
+
+    private CategoryIdDTO getCategoryIdDTO(String id) {
+        CategoryIdDTO categoryIdDTO = new CategoryIdDTO();
+        categoryIdDTO.id = id;
+        return categoryIdDTO;
     }
 }
