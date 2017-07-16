@@ -1,16 +1,13 @@
 package io.alvarogarcia7.petprojects.gtdassistant.backend;
 
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardCreatedObjectMother;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.category.CategoryId;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreated;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.function.Consumer;
-
 import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class EventBusShould {
 
@@ -29,9 +26,13 @@ public class EventBusShould {
     public void tell_a_subscriber_about_an_event() {
         eventBus.subscribe(CardCreated.class, mock::y);
 
-        eventBus.publish(new CardCreated("hello", CategoryId.CategoryIds.empty()));
+        eventBus.publish(sample());
 
         verify(mock).y(any(CardCreated.class));
+    }
+
+    private CardCreated sample() {
+        return CardCreatedObjectMother.sample();
     }
 
     @Test
@@ -39,7 +40,7 @@ public class EventBusShould {
         eventBus.subscribe(CardCreated.class, mock::y);
         eventBus.subscribe(CardCreated.class, mock2::y);
 
-        eventBus.publish(new CardCreated("hello", CategoryId.CategoryIds.empty()));
+        eventBus.publish(sample());
 
         verify(mock).y(any(CardCreated.class));
         verify(mock2).y(any(CardCreated.class));
@@ -52,7 +53,7 @@ public class EventBusShould {
         eventBus.subscribe(CardCreated.class, mock::y);
         eventBus.subscribe(CardCreated.class, mock::y);
 
-        eventBus.publish(new CardCreated("hello", CategoryId.CategoryIds.empty()));
+        eventBus.publish(sample());
 
         verify(mock,times(2)).y(any(CardCreated.class));
     }

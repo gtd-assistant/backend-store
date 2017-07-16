@@ -1,7 +1,6 @@
 package io.alvarogarcia7.petprojects.gtdassistant.backend.card;
 
 import io.alvarogarcia7.petprojects.gtdassistant.backend.EventBus;
-import io.alvarogarcia7.petprojects.gtdassistant.backend.card.category.CategoryId;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreated;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,8 +23,9 @@ public class CardWriteRepositoryShould {
         CardWriteRepository repository = Mockito.spy(new CardWriteRepository());
         repository.registerOn(eventBus);
 
-        eventBus.publish(new CardCreated("", CategoryId.CategoryIds.empty()));
+        eventBus.publish(CardCreatedObjectMother.sample());
 
         verify(repository).save(any(CardCreated.class));
     }
+
 }
