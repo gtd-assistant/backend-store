@@ -1,4 +1,4 @@
-package io.alvarogarcia7.petprojects.gtdassistant.backend;
+package io.alvarogarcia7.petprojects.gtdassistant.backend.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

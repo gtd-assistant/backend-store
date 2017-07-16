@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-@Import(DataSourceConfig.class)
+@Import(io.alvarogarcia7.petprojects.gtdassistant.backend.configuration.DataSourceConfig.class)
 public class SpringContextShould {
     @Test
     public void load_successfully() {

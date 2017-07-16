@@ -1,5 +1,6 @@
-package io.alvarogarcia7.petprojects.gtdassistant.backend;
+package io.alvarogarcia7.petprojects.gtdassistant.backend.configuration;
 
+import io.alvarogarcia7.petprojects.gtdassistant.backend.EventBus;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardAdapter;
 import org.springframework.context.annotation.Bean;
 
