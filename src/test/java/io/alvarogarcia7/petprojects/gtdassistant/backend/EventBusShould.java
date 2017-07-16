@@ -21,7 +21,7 @@ public class EventBusShould {
     }
 
     @Test
-    public void tell_subscribers_about_an_event() {
+    public void tell_a_subscriber_about_an_event() {
         X mock = mock(X.class);
         Consumer<CardCreated> y = mock::y;
         eventBus.subscribe(CardCreated.class, y);
