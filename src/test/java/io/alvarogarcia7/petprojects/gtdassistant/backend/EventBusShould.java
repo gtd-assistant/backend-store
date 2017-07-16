@@ -14,17 +14,17 @@ import static org.mockito.Mockito.verify;
 public class EventBusShould {
 
     private EventBus eventBus;
+    private X mock;
 
     @Before
     public void setUp() throws Exception {
         eventBus = new EventBus();
+        mock = mock(X.class);
     }
 
     @Test
     public void tell_a_subscriber_about_an_event() {
-        X mock = mock(X.class);
-        Consumer<CardCreated> y = mock::y;
-        eventBus.subscribe(CardCreated.class, y);
+        eventBus.subscribe(CardCreated.class, mock::y);
 
         eventBus.publish(new CardCreated("hello", CategoryId.CategoryIds.empty()));
 
