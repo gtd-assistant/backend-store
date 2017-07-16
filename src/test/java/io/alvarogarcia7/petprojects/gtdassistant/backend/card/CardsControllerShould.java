@@ -23,17 +23,17 @@ public class CardsControllerShould {
 
     @Mock
     CardAdapter cardAdapter;
-    private CardsController cardsController;
+    private CardController cardController;
 
     @Before
     public void setUp() throws Exception {
-        cardsController = new CardsController(eventBus, cardAdapter);
+        cardController = new CardController(eventBus, cardAdapter);
     }
 
     @Test
     public void publish_an_event_when_saving_a_card() {
 
-        cardsController.cardCreated(cardCreatedPayload("buy milk"));
+        cardController.cardCreated(cardCreatedPayload("buy milk"));
 
         verify(eventBus).publish(new CardCreated("buy milk"));
     }
@@ -42,7 +42,7 @@ public class CardsControllerShould {
     public void publish_an_event_when_renaming_a_card() {
         String cardIdValue = UUID.randomUUID().toString();
 
-        cardsController.cardUpdated(cardIdValue, cardUpdatedPayload("buy milks"));
+        cardController.cardUpdated(cardIdValue, cardUpdatedPayload("buy milks"));
 
         verify(eventBus).publish(new CardUpdatedEvent(CardCreated.CardID.from(cardIdValue), "buy milks"));
     }

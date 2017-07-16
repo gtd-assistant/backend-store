@@ -1,4 +1,4 @@
-package io.alvarogarcia7.petprojects.gtdassistant.backend;
+package io.alvarogarcia7.petprojects.gtdassistant.backend.acceptance;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

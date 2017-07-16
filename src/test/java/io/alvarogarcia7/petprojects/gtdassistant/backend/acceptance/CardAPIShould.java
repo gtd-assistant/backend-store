@@ -36,7 +36,7 @@ public class CardAPIShould {
     public void save_a_card() {
         Mockito.doReturn(new CardDTO("1", Arrays.asList())).when(cardAdapter).adapt(Mockito.any(Card.class));
         MockMvcRequestAsyncSender when = given()
-                .standaloneSetup(new CardsController(eventBus, cardAdapter))
+                .standaloneSetup(new CardController(eventBus, cardAdapter))
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
                 .body("{\"name\": \"buy milkb\"}")
@@ -55,7 +55,7 @@ public class CardAPIShould {
     public void save_a_card_with_categories() {
         Mockito.doReturn(new CardDTO("1", Arrays.asList(getCategoryIdDTO("1"), getCategoryIdDTO("2")))).when(cardAdapter).adapt(Mockito.any(Card.class));
         MockMvcRequestAsyncSender when = given()
-                .standaloneSetup(new CardsController(eventBus, cardAdapter))
+                .standaloneSetup(new CardController(eventBus, cardAdapter))
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
                 .body("{\"name\": \"buy milk\", \"categories\": [{\"id\": \"1\"}, {\"id\": \"2\"}]}")
@@ -83,7 +83,7 @@ public class CardAPIShould {
     public void rename_a_card() {
         String cardIdValue = UUID.randomUUID().toString();
         MockMvcRequestAsyncSender when = given()
-                .standaloneSetup(new CardsController(eventBus, cardAdapter))
+                .standaloneSetup(new CardController(eventBus, cardAdapter))
                 .contentType(ContentType.JSON)
                 .accept(ContentType.JSON)
                 .body("{\"name\": \"buy milks\"}")

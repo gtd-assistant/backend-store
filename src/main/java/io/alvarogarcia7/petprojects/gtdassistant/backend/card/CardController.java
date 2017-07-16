@@ -10,13 +10,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class CardsController {
+public class CardController {
 
     private final EventBus eventBus;
 
     private final CardAdapter cardAdapter;
 
-    public CardsController(EventBus eventBus, CardAdapter cardAdapter) {
+    public CardController(EventBus eventBus, CardAdapter cardAdapter) {
         this.eventBus = eventBus;
         this.cardAdapter = cardAdapter;
     }
