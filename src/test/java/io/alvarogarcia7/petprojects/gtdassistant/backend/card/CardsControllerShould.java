@@ -1,6 +1,8 @@
 package io.alvarogarcia7.petprojects.gtdassistant.backend.card;
 
 import io.alvarogarcia7.petprojects.gtdassistant.backend.EventBus;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreated;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreatedPayload;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.events.CardUpdatedEvent;
 import org.junit.Before;
 import org.junit.Test;
@@ -53,7 +55,7 @@ public class CardsControllerShould {
 
     private CardCreatedPayload cardCreatedPayload(String name) {
         CardCreatedPayload cardCreatedPayload = new CardCreatedPayload();
-        cardCreatedPayload.name = name;
+        cardCreatedPayload.setName(name);
         return cardCreatedPayload;
     }
 

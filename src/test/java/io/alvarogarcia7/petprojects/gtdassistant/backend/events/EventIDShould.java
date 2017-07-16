@@ -1,6 +1,6 @@
 package io.alvarogarcia7.petprojects.gtdassistant.backend.events;
 
-import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardCreated;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreated;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.events.Event.EventID;
 import org.junit.Test;
 

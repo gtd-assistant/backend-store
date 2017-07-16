@@ -1,6 +1,6 @@
 package io.alvarogarcia7.petprojects.gtdassistant.backend.events;
 
-import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardCreated;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreated;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;

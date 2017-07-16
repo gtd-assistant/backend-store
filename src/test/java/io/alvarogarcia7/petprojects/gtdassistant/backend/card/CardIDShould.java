@@ -1,5 +1,6 @@
 package io.alvarogarcia7.petprojects.gtdassistant.backend.card;
 
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreated;
 import org.junit.Test;
 
 import java.util.UUID;
