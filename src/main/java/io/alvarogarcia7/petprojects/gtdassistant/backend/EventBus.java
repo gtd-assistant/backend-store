@@ -21,6 +21,8 @@ public class EventBus {
     }
 
     public <T> void subscribe(Class<T> event, Consumer<T> callback) {
-        this.subscribers.computeIfAbsent(event, (x) -> new ArrayList<>()).add(callback);
+        this.subscribers
+                .computeIfAbsent(event, (x) -> new ArrayList<>())
+                .add(callback);
     }
 }
