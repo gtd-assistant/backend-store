@@ -15,11 +15,13 @@ public class EventBusShould {
 
     private EventBus eventBus;
     private X mock;
+    private X mock2;
 
     @Before
     public void setUp() throws Exception {
         eventBus = new EventBus();
         mock = mock(X.class);
+        mock2 = mock(X.class);
     }
 
     @Test
@@ -29,6 +31,17 @@ public class EventBusShould {
         eventBus.publish(new CardCreated("hello", CategoryId.CategoryIds.empty()));
 
         verify(mock).y(any(CardCreated.class));
+    }
+
+    @Test
+    public void tell_all_subscribers_about_an_event() {
+        eventBus.subscribe(CardCreated.class, mock::y);
+        eventBus.subscribe(CardCreated.class, mock2::y);
+
+        eventBus.publish(new CardCreated("hello", CategoryId.CategoryIds.empty()));
+
+        verify(mock).y(any(CardCreated.class));
+        verify(mock2).y(any(CardCreated.class));
     }
 
     private class X {
