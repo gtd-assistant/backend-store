@@ -32,7 +32,7 @@ public class EventBusShould {
     }
 
     private class X {
-        public <T> void y(CardCreated y) {
+        public void y(CardCreated y) {
 
         }
     }
