@@ -1,7 +1,6 @@
 package io.alvarogarcia7.petprojects.gtdassistant.backend;
 
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardCreatedObjectMother;
-import io.alvarogarcia7.petprojects.gtdassistant.backend.card.category.CategoryId;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreated;
 import org.junit.Before;
 import org.junit.Test;
