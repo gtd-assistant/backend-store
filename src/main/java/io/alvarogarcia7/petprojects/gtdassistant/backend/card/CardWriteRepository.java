@@ -23,11 +23,9 @@ public class CardWriteRepository implements Registrable {
     public Event.EventID save(CardCreated event) {
         Event.EventID eventId = event.getId();
         this.jdbcTemplate.update("INSERT INTO EVENTS (ID, EVENT_TYPE, EVENT) VALUES (?, ?, ?)",
-                new Object[]{
-                        eventId.getValue(),
-                        CardCreated.class.getSimpleName(),
-                        "hello"
-                });
+                eventId.getValue(),
+                CardCreated.class.getSimpleName(),
+                "hello");
         return eventId;
     }
 
