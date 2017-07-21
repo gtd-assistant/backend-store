@@ -1,30 +1,28 @@
 package io.alvarogarcia7.petprojects.gtdassistant.backend.acceptance;
 
 import io.alvarogarcia7.petprojects.gtdassistant.backend.EventBus;
-import io.alvarogarcia7.petprojects.gtdassistant.backend.card.*;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.Card;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardAdapter;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardController;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.card.CardDTO;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.category.CategoryIdDTO;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreated;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.events.CardUpdatedEvent;
-import io.restassured.http.ContentType;
 import io.restassured.module.mockmvc.response.MockMvcResponse;
 import io.restassured.module.mockmvc.specification.MockMvcRequestAsyncSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Arrays;
 import java.util.UUID;
 
-import static io.restassured.http.ContentType.*;
+import static io.restassured.http.ContentType.JSON;
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
-import static java.util.Arrays.*;
+import static java.util.Arrays.asList;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.verify;
 
 @RunWith(SpringRunner.class)
 public class CardControllerShould {
