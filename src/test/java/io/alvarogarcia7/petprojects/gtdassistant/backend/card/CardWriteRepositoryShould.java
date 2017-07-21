@@ -4,6 +4,7 @@ import io.alvarogarcia7.petprojects.gtdassistant.backend.EventBus;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.category.CategoryId;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreated;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.events.Event;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.events.Event.EventID;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.persistence.DataSourceTestConfig;
 import io.vavr.control.Option;
 import org.junit.Before;
@@ -39,7 +40,7 @@ public class CardWriteRepositoryShould {
     @Test
     public void save_events_to_the_database() {
 
-        Event.EventID eventId = this.repository.save(new CardCreated("buy milk", CategoryId.CategoryIds.empty()));
+        EventID eventId = this.repository.save(new CardCreated("buy milk", CategoryId.CategoryIds.empty()));
 
         assertThat(this.repository.exists(eventId).isDefined()).isTrue();
     }
@@ -47,7 +48,7 @@ public class CardWriteRepositoryShould {
     @Test
     public void find_events_in_the_database() {
         String existingIdInDB = "10";
-        Option<Event.EventID> id = this.repository.exists(Event.EventID.aNew(existingIdInDB));
+        Option<EventID> id = this.repository.exists(EventID.aNew(existingIdInDB));
 
         assertThat(id.isDefined()).isTrue();
     }
