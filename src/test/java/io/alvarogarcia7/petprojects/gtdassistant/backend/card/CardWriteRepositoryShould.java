@@ -41,14 +41,14 @@ public class CardWriteRepositoryShould {
 
         Event.EventID eventId = this.repository.save(new CardCreated("buy milk", CategoryId.CategoryIds.empty()));
 
-        assertThat(this.repository.findBy(eventId).isDefined()).isTrue();
+        assertThat(this.repository.exists(eventId).isDefined()).isTrue();
     }
 
     @Test
     public void find_events_in_the_database() {
         String existingIdInDB = "10";
-        Option<Event.EventID> id = this.repository.findBy(Event.EventID.aNew(existingIdInDB));
-        
+        Option<Event.EventID> id = this.repository.exists(Event.EventID.aNew(existingIdInDB));
+
         assertThat(id.isDefined()).isTrue();
     }
 
