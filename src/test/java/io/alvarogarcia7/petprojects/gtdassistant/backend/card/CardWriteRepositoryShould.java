@@ -3,7 +3,6 @@ package io.alvarogarcia7.petprojects.gtdassistant.backend.card;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.EventBus;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.category.CategoryId;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreated;
-import io.alvarogarcia7.petprojects.gtdassistant.backend.events.Event;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.events.Event.EventID;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.persistence.DataSourceTestConfig;
 import io.vavr.control.Option;
