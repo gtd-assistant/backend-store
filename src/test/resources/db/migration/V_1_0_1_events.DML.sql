@@ -1,0 +1,2 @@
+INSERT INTO EVENTS (ID, EVENT_TYPE, EVENT) VALUES ('1', 'CardCreated', 'bye');
+
