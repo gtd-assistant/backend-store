@@ -14,11 +14,6 @@ public class CardDumperRepository {
 
         List<Map<String, Object>> result = repository.dumpAll();
 
-        result.forEach(row -> {
-            String id = (String) row.get("id");
-            String eventType = (String) row.get("event_type");
-            System.out.println(id);
-            System.out.println(eventType);
-        });
+        result.forEach(System.out::println);
     }
 }
