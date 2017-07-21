@@ -12,13 +12,7 @@ public class CardDumpRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void printAll() {
-        List<Map<String, Object>> maps = jdbcTemplate.queryForList("SELECT ID, EVENT_TYPE, EVENT FROM EVENTS");
-        maps.forEach(resultSet -> {
-            String id = (String) resultSet.get("id");
-            String eventType = (String) resultSet.get("event_type");
-            System.out.println(id);
-            System.out.println(eventType);
-        });
+    public List<Map<String, Object>> dumpAll() {
+        return jdbcTemplate.queryForList("SELECT ID, EVENT_TYPE, EVENT FROM EVENTS");
     }
 }
