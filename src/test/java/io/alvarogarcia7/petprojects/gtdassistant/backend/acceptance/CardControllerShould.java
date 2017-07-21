@@ -20,6 +20,7 @@ import java.util.Arrays;
 import java.util.UUID;
 
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import static java.util.Arrays.*;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.mockito.Mockito.verify;
 
@@ -33,7 +34,7 @@ public class CardControllerShould {
 
     @Test
     public void save_a_card() {
-        Mockito.doReturn(new CardDTO("1", Arrays.asList())).when(cardAdapter).adapt(Mockito.any(Card.class));
+        Mockito.doReturn(new CardDTO("1", asList())).when(cardAdapter).adapt(Mockito.any(Card.class));
         MockMvcRequestAsyncSender when = given()
                 .standaloneSetup(new CardController(eventBus, cardAdapter))
                 .contentType(ContentType.JSON)
@@ -52,7 +53,7 @@ public class CardControllerShould {
 
     @Test
     public void save_a_card_with_categories() {
-        Mockito.doReturn(new CardDTO("1", Arrays.asList(getCategoryIdDTO("1"), getCategoryIdDTO("2")))).when(cardAdapter).adapt(Mockito.any(Card.class));
+        Mockito.doReturn(new CardDTO("1", asList(getCategoryIdDTO("1"), getCategoryIdDTO("2")))).when(cardAdapter).adapt(Mockito.any(Card.class));
         MockMvcRequestAsyncSender when = given()
                 .standaloneSetup(new CardController(eventBus, cardAdapter))
                 .contentType(ContentType.JSON)
