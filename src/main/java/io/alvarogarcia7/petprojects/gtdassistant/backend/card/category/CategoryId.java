@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
+
 @EqualsAndHashCode
 @ToString
 public class CategoryId {
@@ -44,7 +46,7 @@ public class CategoryId {
         }
 
         public List<CategoryIdDTO> toDTO() {
-            return values.stream().map(this::toDTOCategoryId).collect(Collectors.toList());
+            return values.stream().map(this::toDTOCategoryId).collect(toList());
         }
 
         public CategoryIdDTO toDTOCategoryId(CategoryId categoryId) {
