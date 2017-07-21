@@ -5,6 +5,7 @@ import io.alvarogarcia7.petprojects.gtdassistant.backend.card.category.CategoryI
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreated;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.events.Event;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.persistence.DataSourceTestConfig;
+import io.vavr.control.Option;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -41,6 +42,14 @@ public class CardWriteRepositoryShould {
         Event.EventID eventId = this.repository.save(new CardCreated("buy milk", CategoryId.CategoryIds.empty()));
 
         assertThat(this.repository.findBy(eventId).isDefined()).isTrue();
+    }
+
+    @Test
+    public void find_events_in_the_database() {
+        String existingIdInDB = "10";
+        Option<Event.EventID> id = this.repository.findBy(Event.EventID.aNew(existingIdInDB));
+        
+        assertThat(id.isDefined()).isTrue();
     }
 
 }
