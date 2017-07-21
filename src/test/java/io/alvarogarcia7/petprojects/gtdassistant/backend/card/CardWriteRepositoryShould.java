@@ -22,12 +22,11 @@ public class CardWriteRepositoryShould {
 
     @Test
     public void respond_to_events_on_the_bus() {
-        CardWriteRepository repository = this.repository;
-        repository.registerOn(eventBus);
+        this.repository.registerOn(eventBus);
 
         eventBus.publish(CardCreatedObjectMother.sample());
 
-        verify(repository).save(any(CardCreated.class));
+        verify(this.repository).save(any(CardCreated.class));
     }
 
 }
