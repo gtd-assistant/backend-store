@@ -19,6 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Arrays;
 import java.util.UUID;
 
+import static io.restassured.http.ContentType.*;
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
 import static java.util.Arrays.*;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -37,8 +38,8 @@ public class CardControllerShould {
         Mockito.doReturn(new CardDTO("1", asList())).when(cardAdapter).adapt(Mockito.any(Card.class));
         MockMvcRequestAsyncSender when = given()
                 .standaloneSetup(new CardController(eventBus, cardAdapter))
-                .contentType(ContentType.JSON)
-                .accept(ContentType.JSON)
+                .contentType(JSON)
+                .accept(JSON)
                 .body("{\"name\": \"buy milkb\"}")
                 .when();
 
@@ -47,7 +48,7 @@ public class CardControllerShould {
         request.then()
                 .log().all()
                 .statusCode(HttpStatus.OK.value())
-                .contentType(ContentType.JSON)
+                .contentType(JSON)
                 .body("id", equalTo("1"));
     }
 
@@ -56,8 +57,8 @@ public class CardControllerShould {
         Mockito.doReturn(new CardDTO("1", asList(getCategoryIdDTO("1"), getCategoryIdDTO("2")))).when(cardAdapter).adapt(Mockito.any(Card.class));
         MockMvcRequestAsyncSender when = given()
                 .standaloneSetup(new CardController(eventBus, cardAdapter))
-                .contentType(ContentType.JSON)
-                .accept(ContentType.JSON)
+                .contentType(JSON)
+                .accept(JSON)
                 .body("{\"name\": \"buy milk\", \"categories\": [{\"id\": \"1\"}, {\"id\": \"2\"}]}")
                 .when();
 
@@ -66,7 +67,7 @@ public class CardControllerShould {
         request.then()
                 .log().all()
                 .statusCode(HttpStatus.OK.value())
-                .contentType(ContentType.JSON)
+                .contentType(JSON)
                 .body("id", equalTo("1"))
                 .body("categoryIds[0].id", equalTo("1"))
                 .body("categoryIds[1].id", equalTo("2"))
@@ -78,8 +79,8 @@ public class CardControllerShould {
         String cardIdValue = UUID.randomUUID().toString();
         MockMvcRequestAsyncSender when = given()
                 .standaloneSetup(new CardController(eventBus, cardAdapter))
-                .contentType(ContentType.JSON)
-                .accept(ContentType.JSON)
+                .contentType(JSON)
+                .accept(JSON)
                 .body("{\"name\": \"buy milks\"}")
                 .when();
 
