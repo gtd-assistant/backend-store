@@ -23,7 +23,7 @@ public class CardWriteRepositoryShould {
     @Before
     public void setUp() throws Exception {
         eventBus = new EventBus();
-        repository = Mockito.spy(new CardWriteRepository(new JdbcTemplate(new DataSourceTestConfig().dataSource())));
+        repository = Mockito.spy(new CardWriteRepository(new JdbcTemplate(new DataSourceTestConfig().testDataSource())));
     }
 
     @Test

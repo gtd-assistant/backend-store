@@ -12,7 +12,7 @@ public class CardDumperRepository {
     @Test
     public void dump_contents_of_the_events_table() {
 
-        CardDumpRepository repository = new CardDumpRepository(new JdbcTemplate(new DataSourceTestConfig().dataSource()));
+        CardDumpRepository repository = new CardDumpRepository(new JdbcTemplate(new DataSourceTestConfig().testDataSource()));
 
         List<Map<String, Object>> result = repository.dumpAll();
 
