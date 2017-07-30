@@ -4,12 +4,17 @@ import io.alvarogarcia7.petprojects.gtdassistant.backend.EventBus;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.category.CategoryId;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.card.created.CardCreated;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.events.Event.EventID;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.persistence.CardDumpRepository;
+import io.alvarogarcia7.petprojects.gtdassistant.backend.persistence.CardDumperRepository;
 import io.alvarogarcia7.petprojects.gtdassistant.backend.persistence.DataSourceTestConfig;
 import io.vavr.control.Option;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.any;
@@ -19,11 +24,12 @@ public class CardWriteRepositoryShould {
 
     private EventBus eventBus;
     private CardWriteRepository repository;
+    private JdbcTemplate jdbcTemplate;
 
     @Before
     public void setUp() throws Exception {
         eventBus = new EventBus();
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(new DataSourceTestConfig().testDataSource());
+        jdbcTemplate = new JdbcTemplate(new DataSourceTestConfig().testDataSource());
         repository = Mockito.spy(new CardWriteRepository(jdbcTemplate));
     }
 
@@ -44,7 +50,8 @@ public class CardWriteRepositoryShould {
         EventID eventId = this.repository.save(event);
 
         assertThat(this.repository.exists(eventId).isDefined()).isTrue();
-        
+
+        listContents();
     }
 
     @Test
@@ -53,6 +60,11 @@ public class CardWriteRepositoryShould {
         Option<EventID> id = this.repository.exists(EventID.aNew(existingIdInDB));
 
         assertThat(id.isDefined()).isTrue();
+    }
+
+    private void listContents() {
+        List<Map<String, Object>> x = new CardDumpRepository(jdbcTemplate).dumpAll();
+        x.forEach(System.out::println);
     }
 
 }
