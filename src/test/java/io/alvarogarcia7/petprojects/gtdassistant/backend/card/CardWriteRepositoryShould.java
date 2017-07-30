@@ -23,7 +23,8 @@ public class CardWriteRepositoryShould {
     @Before
     public void setUp() throws Exception {
         eventBus = new EventBus();
-        repository = Mockito.spy(new CardWriteRepository(new JdbcTemplate(new DataSourceTestConfig().testDataSource())));
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(new DataSourceTestConfig().testDataSource());
+        repository = Mockito.spy(new CardWriteRepository(jdbcTemplate));
     }
 
     @Test
@@ -38,10 +39,12 @@ public class CardWriteRepositoryShould {
 
     @Test
     public void save_events_to_the_database() {
+        CardCreated event = new CardCreated("buy milk", CategoryId.CategoryIds.empty());
 
-        EventID eventId = this.repository.save(new CardCreated("buy milk", CategoryId.CategoryIds.empty()));
+        EventID eventId = this.repository.save(event);
 
         assertThat(this.repository.exists(eventId).isDefined()).isTrue();
+        
     }
 
     @Test
