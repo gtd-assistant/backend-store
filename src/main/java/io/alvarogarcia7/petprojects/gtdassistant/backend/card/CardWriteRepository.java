@@ -38,7 +38,7 @@ public class CardWriteRepository implements Registrable {
     }
 
     public Option<Event.EventID> exists(Event.EventID eventId) {
-        return jdbcTemplate.queryForObject("SELECT ID, EVENT_TYPE, EVENT FROM EVENTS WHERE ID = ?", (resultSet, i) -> {
+        return jdbcTemplate.queryForObject("SELECT ID FROM EVENTS WHERE ID = ?", (resultSet, i) -> {
             String id = resultSet.getString("id");
             return Option.of(Event.EventID.aNew(id));
         }, eventId.getValue());
