@@ -1,5 +1,7 @@
 package io.alvarogarcia7.petprojects.gtdassistant.backend.configuration;
 
+import io.alvarogarcia7.petprojects.gtdassistant.backend.persistence.DataSourceBuilder;
+import org.flywaydb.core.Flyway;
 import org.h2.jdbcx.JdbcDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,12 +14,20 @@ public class DataSourceConfig {
 
     @Bean
     public DataSource testDataSource(){
-        return serverDataSource();
+        return embeddedDatabase();
     }
 
-//    private DataSource dataSource(){
-//        return DataSourceBuilder.aNewH2().loadProductionMigrations().loadTestMigrations().build();
-//    }
+    @Bean
+    public Flyway flyway() {
+        Flyway flyway = new Flyway();
+        flyway.setDataSource(testDataSource());
+        flyway.migrate();
+        return flyway;
+    }
+
+    private DataSource embeddedDatabase(){
+        return DataSourceBuilder.aNewH2().build();
+    }
 
     private DataSource serverDataSource()  {
         try {
